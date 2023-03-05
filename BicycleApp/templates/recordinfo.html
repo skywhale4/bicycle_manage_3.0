@@ -1,0 +1,47 @@
+{% extends 'index_a.html' %}
+{% block table_1%}
+    <div class="table" align="center">
+    <div class="table-column-group">
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+      <div class="table-column"></div>
+      <div class="table-column"></div>
+      <div class="table-column"></div>
+    </div>
+    <div class="table-header-group">
+            <ul class="table-row">
+                <li class="table-cell">记录编号</li>
+                <li class="table-cell">使用者</li>
+                <li class="table-cell">单车编号</li>
+                <li class="table-cell">单车使用时间</li>
+              <li class="table-cell">单车归还时间</li>
+              <li class="table-cell">单车使用地点</li>
+              <li class="table-cell">单车归还地点</li>
+            </ul>
+    </div>
+    <div class="table-row-group">
+        {% for c in records %}
+        <ul class="table-row">
+            <li class="table-cell">{{ c.id }}</li>
+            <li class="table-cell">{{ c.username}}</li>
+            <li class="table-cell">{{ c.carid }}</li>
+            <li class="table-cell">{{ c.borrowtime }}</li>
+          <li class="table-cell">{{ c.returntime }}</li>
+          <li class="table-cell">{{ c.borrowplace }}</li>
+          <li class="table-cell">{{ c.returnplace }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block search_1 %}
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name="input_carid" class="form-control" type="text" placeholder="输入单车编号查询" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'index_u.html' %}
+{% block search_1 %}
+{% endblock %}
+{% block table_1 %}
+    <div class="table" align="center">
+    <div class="table-column-group">
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+        <div class="table-column"></div>
+        <div class="table-column"></div>
+        <div class="table-column"></div>
+    </div>
+    <div class="table-header-group">
+            <ul class="table-row">
+                <li class="table-cell">使用者</li>
+                <li class="table-cell">单车编号</li>
+                <li class="table-cell">单车使用位置</li>
+                <li class="table-cell">单车使用时间</li>
+                <li class="table-cell">单车归还位置</li>
+                <li class="table-cell">单车归还时间</li>
+                <li class="table-cell">操作</li>
+            </ul>
+    </div>
+    <div class="table-row-group">
+        {% for c in userrecords %}
+        <ul class="table-row">
+            <li class="table-cell">{{ c.username }}</li>
+            <li class="table-cell">{{ c.carid}}</li>
+            <li class="table-cell">{{ c.borrowplace }}</li>
+            <li class="table-cell">{{ c.borrowtime }}</li>
+            <li class="table-cell">{{ c.returnplace }}</li>
+            <li class="table-cell">{{ c.returntime }}</li>
+            <li class="table-cell">
+                <a href ="http://127.0.0.1:8000/returncar_o/?recordid_={{ c.id }}"><button style="border-radius: 6px">去还车</button></a>
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

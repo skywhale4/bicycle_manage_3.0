@@ -1,0 +1,73 @@
+{% extends 'index_u.html' %}
+{% block search_1 %}
+{% endblock %}
+{% block table_1 %}
+    <div class="table" align="center">
+    <div class="table-column-group">
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+        <div class="table-column"></div>
+        <div class="table-column"></div>
+    </div>
+    <div class="table-header-group">
+            <ul class="table-row">
+                <li class="table-cell">使用者</li>
+                <li class="table-cell">单车编号</li>
+                <li class="table-cell">单车使用位置</li>
+                <li class="table-cell">单车使用时间</li>
+                <li class="table-cell">单车归还位置</li>
+                <li class="table-cell">单车归还时间</li>
+            </ul>
+    </div>
+    <div class="table-row-group">
+        <ul class="table-row">
+            <li class="table-cell">{{ c.username }}</li>
+            <li class="table-cell">{{ c.carid}}</li>
+            <li class="table-cell">{{ c.borrowplace }}</li>
+            <li class="table-cell">{{ c.borrowtime }}</li>
+            <li class="table-cell">{{ c.returnplace }}</li>
+            <li class="table-cell">{{ c.returntime }}</li>
+        </ul>
+    </div>
+</div>
+<br/><div align="center"><h3>请填写归还信息</h3></div>
+<form method="post">
+    {% csrf_token %}
+<div class="table" align="center">
+    <div class="table-column-group">
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+            <div class="table-column"></div>
+        <div class="table-column"></div>
+        <div class="table-column"></div>
+        <div class="table-column"></div>
+    </div>
+    <div class="table-header-group">
+            <ul class="table-row">
+                <li class="table-cell">使用者</li>
+                <li class="table-cell">单车编号</li>
+                <li class="table-cell">单车使用位置</li>
+                <li class="table-cell">单车使用时间</li>
+                <li class="table-cell">单车归还位置</li>
+                <li class="table-cell">单车归还时间</li>
+                <li class="table-cell">操作</li>
+            </ul>
+    </div>
+    <div class="table-row-group">
+        <ul class="table-row">
+            <li class="table-cell">{{ c.username }}</li>
+            <li class="table-cell">{{ c.carid}}</li>
+            <li class="table-cell">{{ c.borrowplace }}</li>
+            <li class="table-cell">{{ c.borrowtime }}</li>
+            <li class="table-cell"><input type="text" name="returnplace_"  placeholder="请输入当前位置"></li>
+            <li class="table-cell"><input disabled="disabled" value="{{ re_time }}" name="returntime_" placeholder="归还时间"></li>
+            <li class="table-cell"><input type="submit"  value="归还">
+            </li>
+        </ul>
+    </div>
+</div>
+</form>
+{% endblock %}

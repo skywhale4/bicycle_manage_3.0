@@ -1,0 +1,43 @@
+{% extends 'index_a.html' %}
+{% block table_1 %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="table" align="center">
+            <div class="table-column-group">
+                <div class="table-column"></div>
+                <div class="table-column"></div>
+                <div class="table-column"></div>
+                <div class="table-column"></div>
+                <div class="table-column"></div>
+                <div class="table-column"></div>
+            </div>
+            <div class="table-header-group">
+                <ul class="table-row">
+                    <li class="table-cell">单车编号</li>
+                    <li class="table-cell">单车品牌</li>
+                    <li class="table-cell">单车所在位置</li>
+                    <li class="table-cell">单车状态</li>
+                    <li class="table-cell">操作1</li>
+                    <li class="table-cell">操作2</li>
+                </ul>
+            </div>
+            <div class="table-row-group">
+                <ul class="table-row">
+                    <li class="table-cell">单车编号系统自动生成</li>
+                    <li class="table-cell"><input name="carbrand_" placeholder="单车品牌"></li>
+                    <li class="table-cell"><input name="layplace_" placeholder="单车所在位置"></li>
+                    <li class="table-cell">
+                        <select name="status_">
+                            <option value="空闲">空闲</option>
+                        </select></li>
+                    </li>
+                    <li class="table-cell"><input type="submit" value="保存"></li>
+                    <li class="table-cell"><input type="reset" value="重填"></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block search_1 %}
+    <div></div>
+{% endblock %}
